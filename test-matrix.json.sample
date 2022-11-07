@@ -1,0 +1,30 @@
+{
+  "D638DF": {
+    "ZX": {
+      "NF": {
+        "print-material": {"OFA": 5.24, "CFA": 0},
+        "print-time": 5100,
+        "RTD": {"B": 3, "M": 2, "S": 3},
+        "RTW": {"B": 1, "M": 2, "S": 3}
+      }
+    },
+    "XZ": {
+      "PF": {
+        "print-material": {"OFA": 5.24, "CFA": 0},
+        "print-time": 5100,
+        "RTD": {"B": 3, "M": 2, "S": 3},
+        "RTW": {"B": 1, "M": 2, "S": 3}
+      }
+    }
+  },
+  "TFS19": {
+    "XY": {
+      "PF": {
+        "print-material": {"OFA": 7.78, "CFA": 9.75},
+        "print-time": 12000,
+        "RT": {"B": 1, "M": 1, "S": 5},
+        "ET": {"B": 1, "M": 1, "S": 5}
+      }
+    }
+  }
+}

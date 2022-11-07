@@ -1,0 +1,53 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+################################################################################
+# Project Settings
+################################################################################
+# Name of project. By default, will be used to configure the VM name and
+# project folder.
+$project_name = "print-randomizer"
+
+
+################################################################################
+# Project Dependencies
+################################################################################
+
+# Custom Debian packages installed with apt-get.
+$project_apt_packages = "\
+  git \
+  python \
+  python-pip \
+"
+
+# Custom Python packages installed with pip.
+$project_pip_packages = "\
+"
+
+################################################################################
+# Project Provisioning Scripts
+################################################################################
+
+# Configure project-specific settings.
+$configure_project_settings = <<EOT
+EOT
+
+# Configure the machine and installed tools:
+$configure_project_tools = <<EOT
+  # We do a lot of stuff with serial ports. Let's not make this unbearable.
+  echo "Adding user 'vagrant' to dialout group"
+  adduser vagrant dialout
+
+  # Installs LabJack's Linux driver
+  echo "Installing LabJack driver"
+  wget https://github.com/labjack/exodriver/archive/master.zip -O labjack.zip -q
+  apt-get install -y unzip
+  unzip -qo labjack.zip -d /opt/
+  rm labjack.zip
+  cd /opt/exodriver-master/
+  ./install.sh
+  apt-get remove -y unzip
+  cd ~/
+  rm -rf /opt/exodriver-master/
+EOT
